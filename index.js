@@ -13,9 +13,6 @@ module.exports = function(source, incomingMap) {
   var current = loaderUtils.getCurrentRequest(this);
 
   var query = loaderUtils.parseQuery(this.query);
-  if (query.insertPragma) {
-    source = '/** @jsx ' + query.insertPragma + ' */' + source;
-  }
 
   var transform = reactTools.transformWithDetails(source,
     assign(query, {sourceMap: this.sourceMap}));
